@@ -1,2 +1,5 @@
 # BMI-Calculation-API
-接口描述：标准体重计算器；接口平台：eoLinker-API Shop（apishop.net）
+### 一、接口名称：标准体重计算器
+### 二、接口描述：NBA篮球赛事赛程相关信息
+### 三、接口平台：eoLinker-API Shop （apishop.net）
+#### 本代码示例包含PHP、Python、Java、C#四种语言，具体请查看项目详情。
