@@ -1,29 +1,29 @@
-## eoLinker-API Shop
-### 基于PHP的标准体重计算器API接口调用代码示例
-#### 一、接口名称：标准体重计算器
-#### 二、接口描述：身体质量指数 (Body Mass Index, 简称BMI), 通过身高和体重来计算您的身材是否标准
-#### 三、接口平台：eoLinker-API Shop （apishop.net）
+## 标准体重计算器 - PHP调用示例代码
 
-该套接口包含两个接口：
+#### 标准体重计算器
+身体质量指数 (Body Mass Index, 简称BMI), 通过身高和体重来计算您的身材是否标准
 
-**接口一：获取标准体重参考**
-**接口二：计算BMI值**
+#### 该产品拥有以下APIs：
+1. 计算BMI值
+2. 获取标准体重参考
 
-**1、接口一：获取标准体重参考**
+**注意，该示例代码仅适用于 [www.apishop.net](www.apishop.net "www.apishop.net") 网站下API**
+**使用该产品前，您需要通过 [https://www.apishop.net/#/api/detail/?productID=104](https://www.apishop.net/#/api/detail/?productID=104 "https://www.apishop.net/#/api/detail/?productID=104") 申请API服务**
 
-本代码示例是基于PHP的eoLinker-API Shop** 获取标准体重参考** API服务请求的代码示例，使用前你需要：
+---
 
-①：通过https://www.apishop.net/#/api/detail/?productID=104 申请API服务
+#### 1.计算BMI值
 
-**以下是完整代码示例：**
 ```
 <?php
 $method = "POST";
-$url = "https://api.apishop.net/common/BMI/getStandardWeightTable";
+$url = "https://api.apishop.net/common/BMI/computeBMI";
 $headers = NULL;
-$params = array(
-  "apiKey"=>"参数1"
+$params = array(			
+		"weight"=>"" //体重(单位:千克/公斤)			
+		"height"=>"" //身高(单位:厘米/cm)		
 );
+
 $result = apishop_curl($method, $url, $headers, $params);
 If ($result) {
    $body = json_decode($result["body"], TRUE);
@@ -123,23 +123,18 @@ function apishop_curl(&$method, &$URL, &$headers = NULL, &$param = NULL)
    }
 }
 ```
-**2、接口二：计算BMI值**
+---
 
-本代码示例是基于PHP的eoLinker-API Shop **计算BMI值** API服务请求的代码示例，使用前你需要：
+#### 2.获取标准体重参考
 
-①：通过https://www.apishop.net/#/api/detail/?productID=104 申请API服务
-
-**以下是完整代码示例：**
 ```
 <?php
 $method = "POST";
-$url = "https://api.apishop.net/common/BMI/computeBMI";
+$url = "https://api.apishop.net/common/BMI/getStandardWeightTable";
 $headers = NULL;
-$params = array(
-  "apiKey"=>"参数1",
-  "weight"=>"参数2",
-  "height"=>"参数3"
+$params = array(		
 );
+
 $result = apishop_curl($method, $url, $headers, $params);
 If ($result) {
    $body = json_decode($result["body"], TRUE);
